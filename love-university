@@ -1,0 +1,35 @@
+love-university/
+├── index.html
+├── about.html
+├── faculties.html
+├── contact.html
+├── news.html
+├── courses.html
+├── student-portal.html
+│
+├── admission/
+│   ├── register.html
+│   ├── payment.html
+│   ├── success.html
+│   ├── requirements.html
+│   └── scholarships.html
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── admin.css
+│   │   ├── responsive.css
+│   │   └── fonts.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── admin.js
+│   │   └── forms.js
+│   └── images/
+│       ├── logo.png
+│       └── banners/ (صور للواجهة)
+│
+├── includes/
+│   ├── header.html
+│   ├── footer.html
+│   └── navigation.html
+└── README.md
