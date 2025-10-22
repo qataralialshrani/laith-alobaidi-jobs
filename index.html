@@ -27,28 +27,26 @@
             width: 100%;
         }
 
-        .logo {
-            max-width: 300px;
-            height: auto;
-            margin: 0 auto 20px auto;
-            display: block;
+        .logo-container {
+            background: white;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border: 2px solid #fff;
+            margin-bottom: 20px;
+            max-width: 400px;
+            margin: 0 auto 30px auto;
         }
 
-        .logo-placeholder {
-            width: 300px;
-            height: 150px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            margin: 0 auto 20px auto;
+        .logo-text {
+            font-size: 24px;
             font-weight: bold;
-            font-size: 18px;
+            color: #2c3e50;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .application-container {
@@ -135,25 +133,21 @@
                 margin: 10px;
             }
             
-            .logo {
-                max-width: 250px;
-            }
-            
             .company-title {
                 font-size: 24px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- رأس الصفحة مع الشعار -->
+    <!-- رأس الصفحة مع الشعار النصي -->
     <div class="header">
-        <!-- جرب هذا أولاً -->
-        <img src="2649.jpg" alt="لبت العبدي موتوز" class="logo" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
-        
-        <!-- إذا فشل تحميل الصورة -->
-        <div id="placeholder" class="logo-placeholder" style="display: none;">
-            شعار لبت العبدي موتوز
+        <div class="logo-container">
+            <div class="logo-text">شعار ليت العبدي موتوز</div>
         </div>
     </div>
 
@@ -165,7 +159,7 @@
         <form id="applicationForm">
             <div class="form-group">
                 <label for="fullName">الاسم الكامل (ثلاثي) <span class="required">*</span></label>
-                <input type="text" id="fullName" name="fullName" required>
+                <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الثلاثي">
             </div>
 
             <div class="form-group">
@@ -184,12 +178,12 @@
 
             <div class="form-group">
                 <label for="nationality">الجنسية</label>
-                <input type="text" id="nationality" name="nationality">
+                <input type="text" id="nationality" name="nationality" placeholder="الجنسية">
             </div>
 
             <div class="form-group">
                 <label for="idNumber">رقم الهوية/الإقامة <span class="required">*</span></label>
-                <input type="text" id="idNumber" name="idNumber" required>
+                <input type="text" id="idNumber" name="idNumber" required placeholder="رقم الهوية أو الإقامة">
             </div>
 
             <button type="submit" class="submit-btn">تقديم الطلب</button>
