@@ -1,347 +1,170 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ليث العبيدي موتورز - نموذج التقديم للوظائف</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .professional-logo {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            border: 3px solid #e74c3c;
-            text-align: center;
-        }
-
-        .arabic-name {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #e74c3c;
-        }
-
-        .english-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-
-        .application-container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .section-title {
-            color: #2c3e50;
-            font-size: 22px;
-            font-weight: bold;
-            margin: 30px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #bdc3c7;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #3498db;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .application-container {
-                padding: 25px;
-            }
-            
-            .arabic-name {
-                font-size: 26px;
-            }
-            
-            .english-name {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جامعة الخليج - نموذج لمشروع التخرج</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="professional-logo">
-                <div class="arabic-name">ليث العبيدي موتورز</div>
-                <div class="english-name">Laith Al Obaidi Motors</div>
-            </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <img src="https://via.placeholder.com/120x50?text=Logo" alt="شعار الجامعة" />
         </div>
-
-        <div class="application-container">
-            <h2 style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">نموذج التقديم للوظائف</h2>
-
-            <div class="success-message" id="successMessage">
-                ✅ تم إرسال طلبك بنجاح! سيصلك تأكيد على البريد الإلكتروني
-            </div>
-
-            <form id="applicationForm" action="https://formsubmit.co/qataralialshrani@gmail.com" method="POST">
-                <!-- إعدادات البريد الإلكتروني -->
-                <input type="hidden" name="_subject" value="طلب توظيف جديد - ليث العبيدي موتورز">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/success.html">
-                
-                <!-- المعلومات الشخصية -->
-                <div class="section-title">المعلومات الشخصية</div>
-                
-                <div class="form-group">
-                    <label for="fullName">الاسم الكامل (ثلاثي) <span class="required">*</span></label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="gender">الجنس <span class="required">*</span></label>
-                        <select id="gender" name="gender" required>
-                            <option value="">اختر</option>
-                            <option value="ذكر">ذكر</option>
-                            <option value="أنثى">أنثى</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="birthDate">تاريخ الميلاد <span class="required">*</span></label>
-                        <input type="date" id="birthDate" name="birthDate" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nationality">الجنسية <span class="required">*</span></label>
-                        <input type="text" id="nationality" name="nationality" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="idNumber">رقم الهوية/الإقامة <span class="required">*</span></label>
-                        <input type="text" id="idNumber" name="idNumber" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">رقم الجوال <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="05XXXXXXXX">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">العنوان</label>
-                    <input type="text" id="address" name="address">
-                </div>
-
-                <!-- المؤهلات العلمية -->
-                <div class="section-title">المؤهلات العلمية</div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="education">المؤهل العلمي <span class="required">*</span></label>
-                        <select id="education" name="education" required>
-                            <option value="">اختر المؤهل</option>
-                            <option value="ثانوية عامة">ثانوية عامة</option>
-                            <option value="دبلوم">دبلوم</option>
-                            <option value="بكالوريوس">بكالوريوس</option>
-                            <option value="ماجستير">ماجستير</option>
-                            <option value="دكتوراه">دكتوراه</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="specialization">التخصص <span class="required">*</span></label>
-                        <input type="text" id="specialization" name="specialization" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="graduationYear">سنة التخرج</label>
-                        <input type="number" id="graduationYear" name="graduationYear" min="1980" max="2030">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gpa">المعدل</label>
-                        <input type="text" id="gpa" name="gpa" placeholder="4.00 / 5.00 / 100%">
-                    </div>
-                </div>
-
-                <!-- الخبرات -->
-                <div class="section-title">الخبرات العملية</div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="experience">سنوات الخبرة</label>
-                        <select id="experience" name="experience">
-                            <option value="">اختر سنوات الخبرة</option>
-                            <option value="لا توجد خبرة">لا توجد خبرة</option>
-                            <option value="1-2 سنوات">1-2 سنوات</option>
-                            <option value="3-5 سنوات">3-5 سنوات</option>
-                            <option value="5-10 سنوات">5-10 سنوات</option>
-                            <option value="أكثر من 10 سنوات">أكثر من 10 سنوات</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastJob">آخر وظيفة</label>
-                        <input type="text" id="lastJob" name="lastJob">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="skills">المهارات</label>
-                    <textarea id="skills" name="skills" placeholder="اذكر مهاراتك هنا..."></textarea>
-                </div>
-
-                <!-- معلومات إضافية -->
-                <div class="section-title">معلومات إضافية</div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="maritalStatus">الحالة الاجتماعية</label>
-                        <select id="maritalStatus" name="maritalStatus">
-                            <option value="">اختر</option>
-                            <option value="أعزب">أعزب</option>
-                            <option value="متزوج">متزوج</option>
-                            <option value="مطلق">مطلق</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="drivingLicense">رخصة القيادة</label>
-                        <select id="drivingLicense" name="drivingLicense">
-                            <option value="">اختر</option>
-                            <option value="لا أملك">لا أملك</option>
-                            <option value="خاصة">خاصة</option>
-                            <option value="عامة">عامة</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">تقديم الطلب</button>
-            </form>
+        <div class="top-contacts">
+          <span>اتصل بنا: 0123456789</span>
+          <a href="#" class="apply-btn">التقديم الآن</a>
         </div>
+      </div>
     </div>
 
-    <script>
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            // إظهار رسالة النجاح
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // إخفاء النموذج
-            this.style.display = 'none';
-            
-            // الانتظار قليلاً ثم إعادة تحميل الصفحة
-            setTimeout(function() {
-                window.location.reload();
-            }, 5000);
-        });
-    </script>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <ul class="main-menu">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">عن الجامعة</a></li>
+          <li><a href="#">الكليات</a></li>
+          <li><a href="#">البرامج</a></li>
+          <li><a href="#">البحوث</a></li>
+          <li><a href="#">الأخبار</a></li>
+          <li><a href="#">اتصل بنا</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <input type="search" placeholder="ابحث..." aria-label="search" />
+          <button class="menu-toggle" aria-label="قائمة">☰</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero / Slider -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1>مرحبًا بكم في نموذج جامعة الخليج</h1>
+        <p>موقع أكاديمي نموذجي لمشروع التخرج — تصميم مهيأ للواجهات العربية (RTL).</p>
+        <a class="cta" href="#">تعرف على برامجنا</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/700x350?text=Campus+Image" alt="الحرم الجامعي" />
+      </div>
+    </div>
+    <div class="news-ticker">
+      <div class="container">
+        <div class="ticker-label">آخر الأخبار:</div>
+        <div class="ticker-wrap">
+          <ul id="news-list">
+            <li>افتتاح فصل جديد للعام الأكاديمي</li>
+            <li>منح دراسية للطلاب المتفوقين</li>
+            <li>مؤتمر البحوث السنوي يوم 10 نوفمبر</li>
+            <li>تحديث جدول الاختبارات النهائية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <main class="container main-content">
+    <section class="programs">
+      <h2 class="section-title">برامجنا الأكاديمية</h2>
+      <div class="program-grid">
+        <article class="program-card">
+          <img src="https://via.placeholder.com/400x220?text=Computer+Science" alt="علوم الحاسب" />
+          <h3>علوم الحاسب</h3>
+          <p>بكالوريوس علوم الحاسب — برامج حديثة ومختبرات متقدمة.</p>
+          <a class="more" href="#">المزيد</a>
+        </article>
+
+        <article class="program-card">
+          <img src="https://via.placeholder.com/400x220?text=Business" alt="إدارة الأعمال" />
+          <h3>إدارة الأعمال</h3>
+          <p>بكالوريوس إدارة أعمال — تركيز على ريادة الأعمال والقيادة.</p>
+          <a class="more" href="#">المزيد</a>
+        </article>
+
+        <article class="program-card">
+          <img src="https://via.placeholder.com/400x220?text=Engineering" alt="الهندسة" />
+          <h3>الهندسة</h3>
+          <p>برامج هندسية مع تدريب عملي وشراكات صناعية.</p>
+          <a class="more" href="#">المزيد</a>
+        </article>
+
+        <article class="program-card">
+          <img src="https://via.placeholder.com/400x220?text=Medicine" alt="الطب" />
+          <h3>العلوم الطبية</h3>
+          <p>كليات طبية ومختبرات متطورة ودورات تدريبية سريرية.</p>
+          <a class="more" href="#">المزيد</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Quick Links & Events -->
+    <section class="two-col">
+      <div class="col">
+        <h2 class="section-title">روابط سريعة</h2>
+        <ul class="quick-links">
+          <li><a href="#">القبول والتسجيل</a></li>
+          <li><a href="#">الخدمات الإلكترونية</a></li>
+          <li><a href="#">البريد الطلابي</a></li>
+          <li><a href="#">التقويم الأكاديمي</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h2 class="section-title">الأحداث القادمة</h2>
+        <div class="events">
+          <div class="event">
+            <h4>ورشة عمل: تطوير المواقع</h4>
+            <time datetime="2025-11-10">10 نوفمبر 2025</time>
+            <p>ورشة تدريبية للمطورين الجدد.</p>
+          </div>
+
+          <div class="event">
+            <h4>مؤتمر البحوث</h4>
+            <time datetime="2025-12-01">1 ديسمبر 2025</time>
+            <p>ندوات ومحاضرات في مجالات متعددة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>عن الجامعة</h3>
+        <p>نص افتراضي عن الجامعة — رؤيتها ورسالتها وأنشطتها الأكاديمية.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>روابط مهمة</h3>
+        <ul>
+          <li><a href="#">القبول</a></li>
+          <li><a href="#">البحوث</a></li>
+          <li><a href="#">التوظيف</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>تواصل معنا</h3>
+        <p>البريد: info@example.edu</p>
+        <p>هاتف: 0123456789</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 نموذج جامعة الخليج. كل الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
