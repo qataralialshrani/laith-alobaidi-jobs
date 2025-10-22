@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - لوحة الإدارة</title>
+    <title>تسجيل الدخول - لوحة إدارة Love University</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <div class="login-container">
-        <h1>تسجيل الدخول للإدارة</h1>
-        <form onsubmit="simulateLogin(event)">
-            <input type="text" placeholder="اسم المستخدم" required>
-            <input type="password" placeholder="كلمة المرور" required>
-            <button type="submit">دخول</button>
-        </form>
-        <p><a href="../index.html">← العودة للرئيسية</a></p>
+        <div class="login-box">
+            <h1>🎓 Love University</h1>
+            <h2>تسجيل الدخول للإدارة</h2>
+            
+            <form onsubmit="simulateLogin(event)">
+                <div class="input-group">
+                    <label>اسم المستخدم:</label>
+                    <input type="text" placeholder="أدخل اسم المستخدم" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>كلمة المرور:</label>
+                    <input type="password" placeholder="أدخل كلمة المرور" required>
+                </div>
+                
+                <button type="submit" class="login-btn">دخول ←</button>
+            </form>
+            
+            <div class="login-links">
+                <a href="../index.html">← العودة للرئيسية</a>
+            </div>
+        </div>
     </div>
 
     <script>
         function simulateLogin(event) {
             event.preventDefault();
-            alert('تم الدخول بنجاح!');
+            alert('✅ تم الدخول بنجاح!');
             window.location.href = 'dashboard.html';
         }
     </script>
