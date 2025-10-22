@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ليث العبيدي موتورز - نموذج التقديم</title>
+    <title>ليث العبيدي موتورز - نموذج التقديم للوظائف</title>
     <style>
         * {
             margin: 0;
@@ -16,15 +16,16 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .header {
             text-align: center;
             margin-bottom: 30px;
-            width: 100%;
         }
 
         .professional-logo {
@@ -33,14 +34,8 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             margin-bottom: 20px;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
             border: 3px solid #e74c3c;
             text-align: center;
-        }
-
-        .logo-text {
-            color: #e74c3c;
         }
 
         .arabic-name {
@@ -54,7 +49,6 @@
             font-size: 24px;
             font-weight: bold;
             color: #e74c3c;
-            letter-spacing: 1px;
         }
 
         .application-container {
@@ -62,30 +56,19 @@
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
-        .company-title {
+        .section-title {
             color: #2c3e50;
-            text-align: center;
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .form-title {
-            color: #7f8c8d;
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 30px;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
             border-bottom: 2px solid #3498db;
-            padding-bottom: 15px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         label {
@@ -93,10 +76,9 @@
             margin-bottom: 8px;
             color: #2c3e50;
             font-weight: 600;
-            font-size: 16px;
         }
 
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #bdc3c7;
@@ -106,11 +88,16 @@
             background: #f8f9fa;
         }
 
-        input:focus, select:focus {
+        input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: #3498db;
             background: white;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
         }
 
         .required {
@@ -128,6 +115,7 @@
             width: 100%;
             font-weight: bold;
             transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
         .submit-btn:hover {
@@ -135,15 +123,23 @@
             box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
         }
 
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
         @media (max-width: 768px) {
-            .application-container {
-                padding: 25px;
-                margin: 10px;
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
             
-            .professional-logo {
-                padding: 20px;
-                max-width: 90%;
+            .application-container {
+                padding: 25px;
             }
             
             .arabic-name {
@@ -153,61 +149,166 @@
             .english-name {
                 font-size: 20px;
             }
-            
-            .company-title {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- رأس الصفحة مع الاسم فقط -->
-    <div class="header">
-        <div class="professional-logo">
-            <div class="logo-text">
+    <div class="container">
+        <!-- رأس الصفحة -->
+        <div class="header">
+            <div class="professional-logo">
                 <div class="arabic-name">ليث العبيدي موتورز</div>
                 <div class="english-name">Laith Al Obaidi Motors</div>
             </div>
         </div>
-    </div>
 
-    <!-- نموذج التقديم -->
-    <div class="application-container">
-        <h1 class="company-title">ليث العبيدي موتورز</h1>
-        <h2 class="form-title">نموذج التقديم للوظائف</h2>
+        <!-- نموذج التقديم المكتمل -->
+        <div class="application-container">
+            <h2 style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">نموذج التقديم للوظائف</h2>
 
-        <form id="applicationForm">
-            <div class="form-group">
-                <label for="fullName">الاسم الكامل (ثلاثي) <span class="required">*</span></label>
-                <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الثلاثي">
-            </div>
+            <form id="applicationForm">
+                <!-- المعلومات الشخصية -->
+                <div class="section-title">المعلومات الشخصية</div>
+                
+                <div class="form-group">
+                    <label for="fullName">الاسم الكامل (ثلاثي) <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
 
-            <div class="form-group">
-                <label for="gender">الجنس <span class="required">*</span></label>
-                <select id="gender" name="gender" required>
-                    <option value="">اختر</option>
-                    <option value="male">ذكر</option>
-                    <option value="female">أنثى</option>
-                </select>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gender">الجنس <span class="required">*</span></label>
+                        <select id="gender" name="gender" required>
+                            <option value="">اختر</option>
+                            <option value="male">ذكر</option>
+                            <option value="female">أنثى</option>
+                        </select>
+                    </div>
 
-            <div class="form-group">
-                <label for="birthDate">تاريخ الميلاد</label>
-                <input type="date" id="birthDate" name="birthDate">
-            </div>
+                    <div class="form-group">
+                        <label for="birthDate">تاريخ الميلاد <span class="required">*</span></label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label for="nationality">الجنسية</label>
-                <input type="text" id="nationality" name="nationality" placeholder="الجنسية">
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationality">الجنسية <span class="required">*</span></label>
+                        <input type="text" id="nationality" name="nationality" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="idNumber">رقم الهوية/الإقامة <span class="required">*</span></label>
-                <input type="text" id="idNumber" name="idNumber" required placeholder="رقم الهوية أو الإقامة">
-            </div>
+                    <div class="form-group">
+                        <label for="idNumber">رقم الهوية/الإقامة <span class="required">*</span></label>
+                        <input type="text" id="idNumber" name="idNumber" required>
+                    </div>
+                </div>
 
-            <button type="submit" class="submit-btn">تقديم الطلب</button>
-        </form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="05XXXXXXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">العنوان</label>
+                    <input type="text" id="address" name="address">
+                </div>
+
+                <!-- المؤهلات العلمية -->
+                <div class="section-title">المؤهلات العلمية</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="education">المؤهل العلمي <span class="required">*</span></label>
+                        <select id="education" name="education" required>
+                            <option value="">اختر المؤهل</option>
+                            <option value="high_school">ثانوية عامة</option>
+                            <option value="diploma">دبلوم</option>
+                            <option value="bachelor">بكالوريوس</option>
+                            <option value="master">ماجستير</option>
+                            <option value="phd">دكتوراه</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">التخصص <span class="required">*</span></label>
+                        <input type="text" id="specialization" name="specialization" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="graduationYear">سنة التخرج</label>
+                        <input type="number" id="graduationYear" name="graduationYear" min="1980" max="2030">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gpa">المعدل</label>
+                        <input type="text" id="gpa" name="gpa" placeholder="4.00 / 5.00 / 100%">
+                    </div>
+                </div>
+
+                <!-- الخبرات -->
+                <div class="section-title">الخبرات العملية</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="experience">سنوات الخبرة</label>
+                        <select id="experience" name="experience">
+                            <option value="">اختر سنوات الخبرة</option>
+                            <option value="none">لا توجد خبرة</option>
+                            <option value="1-2">1-2 سنوات</option>
+                            <option value="3-5">3-5 سنوات</option>
+                            <option value="5-10">5-10 سنوات</option>
+                            <option value="10+">أكثر من 10 سنوات</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastJob">آخر وظيفة</label>
+                        <input type="text" id="lastJob" name="lastJob">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">المهارات</label>
+                    <textarea id="skills" name="skills" placeholder="اذكر مهاراتك هنا..."></textarea>
+                </div>
+
+                <!-- معلومات إضافية -->
+                <div class="section-title">معلومات إضافية</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maritalStatus">الحالة الاجتماعية</label>
+                        <select id="maritalStatus" name="maritalStatus">
+                            <option value="">اختر</option>
+                            <option value="single">أعزب</option>
+                            <option value="married">متزوج</option>
+                            <option value="divorced">مطلق</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="drivingLicense">رخصة القيادة</label>
+                        <select id="drivingLicense" name="drivingLicense">
+                            <option value="">اختر</option>
+                            <option value="none">لا أملك</option>
+                            <option value="private">خاصة</option>
+                            <option value="public">عامة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">تقديم الطلب</button>
+            </form>
+        </div>
     </div>
 
     <script>
