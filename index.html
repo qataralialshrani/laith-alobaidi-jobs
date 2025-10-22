@@ -11,99 +11,288 @@
             min-height: 100vh;
             padding: 20px;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         .container {
             background: white;
             color: #333;
             border-radius: 20px;
             padding: 40px;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
-            text-align: center;
+            margin: 0 auto;
             border: 3px solid #ffd700;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
-        .contact-box {
-            background: #ffd700;
-            color: #1e3c72;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            font-weight: bold;
-            font-size: 18px;
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
         }
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin: 10px 0;
+        label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #1e3c72;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             font-size: 16px;
         }
-        .email-btn {
-            display: inline-block;
+        .submit-btn {
             background: #1e3c72;
             color: white;
-            padding: 12px 25px;
+            padding: 15px 40px;
+            border: none;
             border-radius: 25px;
-            text-decoration: none;
-            margin: 10px 5px;
+            font-size: 18px;
             font-weight: bold;
-            font-size: 16px;
+            cursor: pointer;
             border: 2px solid #ffd700;
+            display: block;
+            margin: 30px auto;
+            width: 200px;
+        }
+        .submit-btn:hover {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .section-title {
+            background: #1e3c72;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+            text-align: center;
+        }
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            color: #1e3c72;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 style="color: #1e3c72; margin-bottom: 10px;">ليث العبيدي موتورز</h1>
-        <h2 style="color: #2a5298; margin-bottom: 30px;">وظائف شاغرة للجنسين</h2>
+        <h1 style="color: #1e3c72; text-align: center; margin-bottom: 10px;">ليث العبيدي موتورز</h1>
+        <h2 style="color: #2a5298; text-align: center; margin-bottom: 30px;">نموذج التقديم للوظائف</h2>
         
-        <div style="background: #1e3c72; color: white; padding: 15px; border-radius: 10px; margin: 20px 0; font-size: 20px;">
-            ✅ توظيف في عدة تخصصات
-        </div>
-        
-        <div style="text-align: right; margin: 25px 0;">
-            <h3 style="color: #1e3c72;">التخصصات المطلوبة:</h3>
-            <ul style="list-style: none; padding: 0; font-size: 18px;">
-                <li>🏗️ هندسية</li>
-                <li>📊 ادارية</li>
-                <li>💰 مالية</li>
-                <li>📈 مبيعات</li>
-                <li>🎯 تقنية معلومات</li>
-            </ul>
-        </div>
-        
-        <div style="background: #1e3c72; color: white; padding: 12px; border-radius: 8px; margin: 20px 0; font-weight: bold;">
-            🏙️ مدن العمل: الرياض - جدة - الشرقية
+        <div id="successMessage" class="success-message">
+            ✅ تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً.
         </div>
 
-        <div class="contact-box">
-            <h3>📞 للتقديم على الوظائف:</h3>
-            <p>اختر طريقة التواصل المناسبة لك</p>
-            
-            <!-- زر الواتساب -->
-            <a href="https://wa.me/966578922628?text=مرحباً، أريد التقديم على الوظائف في ليث العبيدي موتورز" 
-               class="whatsapp-btn">
-               📱 التواصل عبر واتساب
-            </a>
-            
-            <!-- زر البريد الإلكتروني -->
-            <a href="mailto:qataralialshrani@gmail.com?subject=طلب توظيف - ليث العبيدي موتورز&body=الاسم: %0D%0Aرقم الجوال: %0D%0Aالمدينة: %0D%0Aالمجال المطلوب:" 
-               class="email-btn">
-               📧 إرسال بريد إلكتروني
-            </a>
+        <div id="loading" class="loading">
+            ⏳ جاري حفظ البيانات...
         </div>
-        
-        <div style="margin-top: 20px; color: #666; font-size: 14px;">
-            <p>سيتم الرد على جميع الطلبات خلال 24 ساعة</p>
+
+        <!-- نموذج التقديم -->
+        <form id="jobForm">
+            <!-- المعلومات الشخصية -->
+            <div class="section-title">المعلومات الشخصية</div>
+            
+            <div class="form-group">
+                <label>الاسم الكامل (ثلاثي) *</label>
+                <input type="text" required name="full_name">
+            </div>
+
+            <div class="form-group">
+                <label>الجنس *</label>
+                <select required name="gender">
+                    <option value="">اختر</option>
+                    <option value="ذكر">ذكر</option>
+                    <option value="أنثى">أنثى</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>تاريخ الميلاد</label>
+                <input type="date" name="birth_date">
+            </div>
+
+            <div class="form-group">
+                <label>الجنسية</label>
+                <input type="text" name="nationality">
+            </div>
+
+            <div class="form-group">
+                <label>رقم الهوية/الإقامة *</label>
+                <input type="text" required name="id_number">
+            </div>
+
+            <div class="form-group">
+                <label>الحالة الاجتماعية</label>
+                <select name="marital_status">
+                    <option value="">اختر</option>
+                    <option value="أعزب">أعزب</option>
+                    <option value="متزوج">متزوج</option>
+                    <option value="مطلق">مطلق</option>
+                </select>
+            </div>
+
+            <!-- معلومات الاتصال -->
+            <div class="section-title">معلومات الاتصال</div>
+
+            <div class="form-group">
+                <label>رقم الجوال *</label>
+                <input type="tel" required name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>البريد الإلكتروني *</label>
+                <input type="email" required name="email">
+            </div>
+
+            <div class="form-group">
+                <label>المدينة *</label>
+                <select required name="city">
+                    <option value="">اختر المدينة</option>
+                    <option value="الرياض">الرياض</option>
+                    <option value="جدة">جدة</option>
+                    <option value="الشرقية">الشرقية</option>
+                </select>
+            </div>
+
+            <!-- المؤهلات العلمية -->
+            <div class="section-title">المؤهلات العلمية</div>
+
+            <div class="form-group">
+                <label>المؤهل الدراسي</label>
+                <select name="education">
+                    <option value="">اختر المؤهل</option>
+                    <option value="ثانوية">ثانوية</option>
+                    <option value="دبلوم">دبلوم</option>
+                    <option value="بكالوريوس">بكالوريوس</option>
+                    <option value="ماجستير">ماجستير</option>
+                    <option value="دكتوراه">دكتوراه</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>التخصص</label>
+                <input type="text" name="major">
+            </div>
+
+            <div class="form-group">
+                <label>الجامعة/المعهد</label>
+                <input type="text" name="university">
+            </div>
+
+            <!-- معلومات الوظيفة -->
+            <div class="section-title">معلومات الوظيفة المطلوبة</div>
+
+            <div class="form-group">
+                <label>المجال/القسم المطلوب *</label>
+                <select required name="job_field">
+                    <option value="">اختر المجال</option>
+                    <option value="هندسي">هندسي</option>
+                    <option value="إداري">إداري</option>
+                    <option value="مالي">مالي</option>
+                    <option value="مبيعات">مبيعات</option>
+                    <option value="تقنية معلومات">تقنية معلومات</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>الراتب المتوقع (ريال سعودي)</label>
+                <input type="number" name="expected_salary">
+            </div>
+
+            <!-- الخبرات -->
+            <div class="form-group">
+                <label>الخبرات السابقة (اختياري)</label>
+                <textarea name="experience" rows="4" placeholder="اذكر خبراتك العملية السابقة..."></textarea>
+            </div>
+
+            <!-- المهارات -->
+            <div class="form-group">
+                <label>المهارات (اختياري)</label>
+                <textarea name="skills" rows="3" placeholder="اذكر مهاراتك..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">تقديم الطلب</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px; color: #666;">
+            <p>سيتم مراجعة طلبك والاتصال بك خلال 48 ساعة</p>
         </div>
     </div>
+
+    <script>
+        // الرابط الخاص بحفظ البيانات (سأعطيك الرابط بعد إنشائه)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+        document.getElementById('jobForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const loading = document.getElementById('loading');
+            
+            // تعطيل الزر وإظهار التحميل
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'جاري الإرسال...';
+            loading.style.display = 'block';
+            
+            // جمع البيانات من النموذج
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                // إرسال البيانات إلى Google Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // نجح الإرسال
+                    successMessage.style.display = 'block';
+                    loading.style.display = 'none';
+                    
+                    // إعادة تعيين النموذج بعد 3 ثواني
+                    setTimeout(() => {
+                        this.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'تقديم الطلب';
+                    }, 3000);
+                } else {
+                    throw new Error('فشل في الإرسال');
+                }
+                
+            } catch (error) {
+                // إذا فشل الإرسال، نستخدم طريقة البريد كبديل
+                const emailContent = `طلب توظيف جديد - ${data.full_name}`;
+                const mailtoLink = `mailto:qataralialshrani@gmail.com?subject=طلب توظيف جديد&body=${encodeURIComponent(JSON.stringify(data, null, 2))}`;
+                window.location.href = mailtoLink;
+                
+                successMessage.style.display = 'block';
+                loading.style.display = 'none';
+                
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'تقديم الطلب';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
