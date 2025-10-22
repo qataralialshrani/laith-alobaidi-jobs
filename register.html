@@ -1,0 +1,66 @@
+!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة الحب - تسجيل الطلاب</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <img src="../assets/images/logo.png" alt="شعار جامعة الحب" class="logo">
+        <nav>
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../htm1about.html">عن الجامعة</a></li>
+                <li><a href="../faculties.html">الكليات</a></li>
+                <li><a href="register.html">التسجيل</a></li>
+                <li><a href="../contact.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- نموذج التسجيل -->
+    <section class="registration-form">
+        <h1>نموذج تسجيل الطلاب</h1>
+        <form id="registrationForm">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required>
+
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+
+            <label>المعدل في الثانوية:</label>
+            <input type="number" name="gpa" placeholder="مثال: 95.5" step="0.01" required>
+
+            <label>المستوى الدراسي:</label>
+            <select name="degree" required>
+                <option value="">اختر المستوى</option>
+                <option>دبلوم</option>
+                <option>بكالوريوس</option>
+                <option>ماجستير</option>
+            </select>
+
+            <label>الكلية:</label>
+            <select name="faculty" required>
+                <option value="">اختر الكلية</option>
+                <option>الكلية الطبية</option>
+                <option>الكلية الهندسية</option>
+                <option>الكلية الإدارية</option>
+                <option>الكلية التقنية</option>
+            </select>
+
+            <button type="submit">إرسال الطلب</button>
+        </form>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>© 2025 جامعة الحب - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- JS محاكاة -->
+    <script src="../assets/js/forms.js"></script>
+</body>
+</html>
