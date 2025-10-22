@@ -34,6 +34,21 @@
             display: block;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 2px solid #fff;
+        }
+
+        .logo-placeholder {
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            margin: 0 auto 20px auto;
+            font-weight: bold;
+            font-size: 18px;
         }
 
         .application-container {
@@ -133,7 +148,13 @@
 <body>
     <!-- رأس الصفحة مع الشعار -->
     <div class="header">
-        <img src="2648.jpg" alt="لبت العبدي موتوز" class="logo">
+        <!-- جرب هذا أولاً -->
+        <img src="2649.jpg" alt="لبت العبدي موتوز" class="logo" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
+        
+        <!-- إذا فشل تحميل الصورة -->
+        <div id="placeholder" class="logo-placeholder" style="display: none;">
+            شعار لبت العبدي موتوز
+        </div>
     </div>
 
     <!-- نموذج التقديم -->
