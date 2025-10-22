@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة الحب - تواصل معنا</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <img src="assets/images/logo.png" alt="شعار جامعة الحب" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="htm1about.html">عن الجامعة</a></li>
+                <li><a href="faculties.html">الكليات</a></li>
+                <li><a href="admission/register.html">التسجيل</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <section class="contact">
+        <h1>تواصل معنا</h1>
+        <p>يمكنك مراسلتنا عبر النموذج أدناه أو من خلال وسائل الاتصال التالية:</p>
+
+        <ul>
+            <li>البريد الإلكتروني: info@loveuniversity.edu</li>
+            <li>رقم الهاتف: 0123456789</li>
+            <li>العنوان: شارع الجامعة، المدينة، الدولة</li>
+        </ul>
+
+        <form id="contactForm">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="fullname" required>
+
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="email" required>
+
+            <label>رسالتك:</label>
+            <textarea name="message" rows="5" required></textarea>
+
+            <button type="submit">إرسال الرسالة</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 جامعة الحب - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("تم إرسال رسالتك بنجاح! (محاكاة Front-end)");
+        this.reset();
+    });
+    </script>
+</body>
+</html>
